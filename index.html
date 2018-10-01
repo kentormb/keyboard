@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>On-Screen Virtual Keyboard</title>
+<link  rel="stylesheet" type="text/css" href="css/keyboard.css" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.keyboard.js"></script>
+
+<script>
+	var kb;
+	jQuery(document).ready(function() 
+	{
+		kb = jQuery('input').keyboard({language:'en'});
+		
+	});
+</script>
+<style>
+body
+{
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:100%;
+	background :rgb(9, 69, 122);
+}
+.color-button
+{
+	width:50px; height:25px; display:inline-block; margin:3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor:pointer;
+}
+.color-button:before {
+	content: "";
+	width: 50px;
+	height: 10px;
+
+	display: block;
+	position: absolute;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 8%, rgba(255,255,255,0) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(8%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+}
+
+#default{background-color:#999; border:1px solid #333;}
+#blue{background-color:#09C; border:1px solid #006;}
+#green{background-color:#0C6; border:1px solid #063;}
+#red{background-color:#F00; border:1px solid #900;}
+#yellow{background-color:#CF3; border:1px solid #990;}
+#black{background-color:#000; border:1px solid #333;}
+
+.button{cursor:pointer; width:100%;}
+input, textarea{ font-size:16px;}
+</style>
+
+</head>
+<body>
+
+<div style="width:900px; position:relative; left:50%; margin-left:-450px;">
+<h2 style="color:#FFF; text-shadow: 2px 2px #000000;">On-Screen Virtual Keyboard</h2>
+<form id="form1">
+    <input type="text" id="input1" size="60" /><br>
+    <input type="text" class="input-text" size="60" /><br>
+    <textarea cols="46" rows="7"></textarea>
+</form>
+  <div style="width:185px; height:240px; border:2px solid #006; position:absolute; top:20px; right:80px; padding:10px; background-color:#B0D7F7">
+        	<font style="font-weight:bold">Change Skin Color</font>
+            <div>
+                <div class="color-button" id="default" onClick="kb.changeSkin('default')"></div>
+                <div class="color-button" id="blue" onClick="kb.changeSkin('blue')"></div>
+                <div class="color-button" id="green" onClick="kb.changeSkin('green')"></div><br>
+                <div class="color-button" id="red" onClick="kb.changeSkin('red')"></div>
+                <div class="color-button" id="yellow" onClick="kb.changeSkin('yellow')"></div>
+                <div class="color-button" id="black" onClick="kb.changeSkin('black')"></div>
+                <br><br>
+				<font style="font-weight:bold">Select Language</font>
+                
+                <select onChange="kb.changeLanguage(this.value)">
+                	<option value="en">English</option>
+                    <option value="cz">French</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="es">Spanish</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="gr">Greek</option>
+                    <option value="ru">Russian</option>
+                    <option value="tr">Turkish</option>
+                    <option value="fr">Czech</option>
+                    <option value="hu">Hungarian</option>
+                    <option value="is">Icelandic</option>
+                    <option value="pl">Polish</option>
+                    <option value="kr">Korean</option>
+                    <option value="jp">Japanese</option>
+                </select>
+                
+                <br><br>
+                
+                <button class="button" onClick="kb.openKeyboard();">Open Keyboard</button>
+                <button class="button" onClick="kb.closeKeyboard();">Close Keyboard</button>
+            </div>
+       </div>
+
+</div>
+<br>
+
+</body>
+</html>
